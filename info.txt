@@ -1,0 +1,37 @@
+SCRIPTS
+
+GetGameList - Read all gameids for ladder and insert into table gamelist
+
+GetGameJson - In batches of 10, select games from table gamelist where loaddate is null and store JSON in table gamejson using class GameJson
+
+ExpandGames - In batches of 100000, select games from table gamelist where parsedate is null and use class GameParse to parse json
+
+
+CLASSES
+
+GameJson - Pull JSON for a single game by gameid and return proper JSON
+
+GameParse - For a given game: clear/populate tables games, players, picks, standing
+
+
+TABLES
+
+terr - territories
+
+bonus - bonuses
+
+bonusmap - association of bonuses with territories
+
+gamelist - gameids and json
+
+games - general game info
+
+players - player ids, names, and statuses by game
+
+picks - picks
+
+standing - picture of the map after each turn, turn -1 is distribution (pid of NULL are warlords), turn 0 is after distribution, etc.
+
+
+
+
